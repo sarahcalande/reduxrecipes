@@ -1,28 +1,35 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
+import {connect} from 'react-redux'
 import './App.css';
+import {fetchRecipe} from './redux/actionCreator.js'
+import Header from './components/Header.js'
+import Display from './components/Display.js'
+import NavBar from './components/NavBar.js'
+import SearchBar from './components/SearchBar.js'
 
 class App extends Component {
+
+componentDidMount(){
+  this.props.fetchRecipe()
+}
+
   render() {
+    console.log(this.props.recipes)
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+      <Header/>
+      <SearchBar/>
+      <Display/>
+      <NavBar/>
       </div>
     );
   }
 }
 
-export default App;
+
+const mapStateToProps=(state)=>{
+  return {recipes: state.recipes}
+}
+
+export default connect(mapStateToProps, {fetchRecipe})(App);
