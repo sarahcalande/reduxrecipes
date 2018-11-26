@@ -27,7 +27,7 @@ handleChange=(e)=>{
 
 render(){
   return(
-<div>
+<div class="ui search">
 <form onSubmit={this.handleSubmit}>
 <input type="search" onChange={this.handleChange}/>
 <button>Submit</button>

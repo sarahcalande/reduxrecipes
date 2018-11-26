@@ -16,7 +16,7 @@ arrayLength=()=>{
 
 render(){
   return(
-    <div>{this.arrayLength()}</div>
+    <div class="ui grid">{this.arrayLength()}</div>
   )
 }
 }

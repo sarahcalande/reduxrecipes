@@ -1,6 +1,7 @@
 let intialState = {
   recipes: [],
-  searchedRecipes: []
+  searchedRecipes: [],
+  savedRecipes: []
 }
 
 
@@ -11,6 +12,8 @@ const reducer = (state = intialState, action)=>{
     return {...state, recipes: action.payload.matches}
     case 'SEARCH_RECIPE':
     return{...state, searchedRecipes: action.payload.matches}
+    case 'SAVED_RECIPE':
+    return{...state, savedRecipes: action.payload.matches}
       default: return state
   }
 }

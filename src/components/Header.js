@@ -13,9 +13,9 @@ render(){
 
 
   return(
-<div>
-Hi
-</div>
+<h1>
+Sar's Recipe App
+</h1>
   )
 }
 

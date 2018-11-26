@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import {connect} from 'react-redux'
 import './App.css';
+import './semantic/dist/semantic.min.css';
 import {fetchRecipe} from './redux/actionCreator.js'
 import Header from './components/Header.js'
 import Display from './components/Display.js'
@@ -19,9 +20,8 @@ componentDidMount(){
     return (
       <div className="App">
       <Header/>
-      <SearchBar/>
+             <NavBar/> <SearchBar/>
       <Display/>
-      <NavBar/>
       </div>
     );
   }
