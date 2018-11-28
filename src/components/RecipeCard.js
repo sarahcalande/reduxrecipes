@@ -13,18 +13,17 @@ handleClick=()=>{
 
 
 handleSave=(recipe)=>{
-  return fetch('http://localhost:3000/recipes', {
+  return fetch('http://localhost:3000/user_recipes', {
     method: "POST",
     headers: {
               'Accept': 'application/json',
-      "Content-Type": "application/json"
+      "Content-Type": "application/json",
+      "Authorization": `Bearer ${localStorage.token}`
     },
-    body: JSON.stringify({recipe:
+    body: JSON.stringify({user_recipe:
     {
       name: recipe.recipeName,
-      ingredients: recipe.imageUrlsBySize,
-      image_url: recipe.imageUrlsBySize[90],
-      ingredient_ids: []
+      image_url: recipe.imageUrlsBySize[90]
     }
   })
   })

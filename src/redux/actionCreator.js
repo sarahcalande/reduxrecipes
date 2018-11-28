@@ -31,9 +31,15 @@ export const switchFunction=()=>{
 
 export const saves=()=>{
   return dispatch => {
-  fetch('http://localhost:3000/recipes')
-  .then(r=>r.json())
-  .then(saved => dispatch({
+    return fetch('http://localhost:3000/recipes', {
+      method: "GET",
+      headers: {
+                'Accept': 'application/json',
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${localStorage.token}`
+      }})
+      .then(r=>r.json())
+      .then(saved => dispatch({
     type: 'SAVED_RECIPE',
     payload: saved
     }))
@@ -53,8 +59,16 @@ export const details=(recipe)=>{
 
 
 export const showForm=()=>{
-  return dispatch => ({
+  return {
       type: 'SHOW_FORM',
       payload: true
-    })
+    }
+  }
+
+
+  export const clearOnLogout=()=>{
+    return {
+      type: 'CLEAR_LOGOUT',
+      payload:  []
+    }
   }

@@ -10,14 +10,19 @@ import Login from './Login.js'
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import SearchBar from './SearchBar.js'
 import Signup from './Signup.js'
+import {connect} from 'react-redux'
+import {clearOnLogout} from '../redux/actionCreator.js'
 
 
+const AppRouter = (props) => {
 
-  const logout=()=>{
-    localStorage.clear()
-  }
 
-const AppRouter = () => (
+    const logout=()=>{
+          props.clearOnLogout()
+      localStorage.clear()
+    }
+
+return(
   <Router>
   <div className="ui sidebar visible">
   <button> <Link to="/">  Home </Link> </button>
@@ -37,6 +42,6 @@ const AppRouter = () => (
       <Route path="/Show/:id" component={Show} />
   </div>
   </Router>
-);
+)};
 
-export default AppRouter;
+export default connect(null, {clearOnLogout})(AppRouter)
