@@ -1,19 +1,28 @@
 let intialState = {
   recipes: [],
   searchedRecipes: [],
-  savedRecipes: []
+  savedRecipes: [],
+  clicked: false,
+  form: false,
+  show: null
 }
 
 
 const reducer = (state = intialState, action)=>{
   switch (action.type){
     case 'FETCH_RECIPE':
-    console.log(action.payload)
     return {...state, recipes: action.payload.matches}
     case 'SEARCH_RECIPE':
     return{...state, searchedRecipes: action.payload.matches}
     case 'SAVED_RECIPE':
-    return{...state, savedRecipes: action.payload.matches}
+    console.log(action.payload)
+    return{...state, savedRecipes: action.payload}
+    case 'TOGGLE_SWITCH':
+    return {...state, clicked: action.payload}
+    case 'SHOW_FORM':
+    return {...state, form: action.payload}
+    case 'SHOW_DETAILS':
+    return {...state, show: action.payload}
       default: return state
   }
 }

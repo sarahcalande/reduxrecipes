@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import {connect} from 'react-redux'
 import './App.css';
 import './semantic/dist/semantic.min.css';
@@ -8,20 +7,32 @@ import Header from './components/Header.js'
 import Display from './components/Display.js'
 import NavBar from './components/NavBar.js'
 import SearchBar from './components/SearchBar.js'
+import Signup from './components/Signup.js'
+
+
+
 
 class App extends Component {
 
-componentDidMount(){
+componentDidMount=()=>{
   this.props.fetchRecipe()
+  if (localStorage.token !== "undefined"){
+    let token = localStorage.getItem("token")
+    fetch('http://localhost:3000/currentuser', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json',
+        Authorization: token
+      }
+    })
+  }
 }
 
   render() {
-    console.log(this.props.recipes)
     return (
       <div className="App">
-      <Header/>
-             <NavBar/> <SearchBar/>
-      <Display/>
+             <NavBar/>
       </div>
     );
   }

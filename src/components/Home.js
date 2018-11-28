@@ -5,7 +5,7 @@ import Saved from './Saved.js'
 import Header from './Header.js'
 import Form from './Form.js'
 
-class Display extends Component{
+class Home extends Component{
 
 
 
@@ -31,7 +31,7 @@ arrayLength=()=>{
   }
 
 render(){
-  return(<div><div>
+  return(<div><div> <Header />
     </div> <div>{this.toggleButtons()}</div></div>)
 }
 }
@@ -43,4 +43,4 @@ const mapStateToProps=(state)=>{
   form: state.form}
 }
 
-export default connect(mapStateToProps)(Display);
+export default connect(mapStateToProps)(Home);

@@ -1,16 +1,27 @@
 import React, { Component } from 'react';
+import {connect} from 'react-redux'
+import {switchFunction} from '../redux/actionCreator.js'
+import {showForm} from '../redux/actionCreator.js'
+import AppRouter from './Router.js'
+import ReactDOM from 'react-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
+class NavBar extends Component{
 
-export default class NavBar extends Component{
+// 
+// handleClick=()=>{
+// this.props.switchFunction()
+// }
+//
+//
+// showFormInDisplay=()=>{
+//   this.props.showForm()
+// }
 
 render(){
 
   return(
-    <div className="ui sidebar visible">
-    <button>Home</button>
-    <button onClick={this.handleClick}> <i class="heart icon"></i> Saved Recipes</button>
-    <button>Create A Recipe</button>
-    </div>
+          <AppRouter />
   )
 }
 
@@ -18,3 +29,14 @@ render(){
 
 
 }
+
+const mapDispatchToProps = dispatch => {
+  return {
+    switchFunction,
+    showForm
+  }
+}
+
+
+
+export default connect(null, mapDispatchToProps)(NavBar)

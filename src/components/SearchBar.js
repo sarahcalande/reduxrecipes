@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {giveToAC} from '../redux/actionCreator.js'
 import {connect} from 'react-redux'
+import Display from './Display.js'
 
 
 
@@ -27,11 +28,14 @@ handleChange=(e)=>{
 
 render(){
   return(
-<div class="ui search">
+    <div>
+<div className="ui search">
 <form onSubmit={this.handleSubmit}>
 <input type="search" onChange={this.handleChange}/>
 <button>Submit</button>
 </form>
+</div>
+<Display />
 </div>
   )
 }

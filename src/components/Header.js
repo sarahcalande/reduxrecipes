@@ -13,7 +13,7 @@ render(){
 
 
   return(
-<h1>
+<h1 className="title">
 Sar's Recipe App
 </h1>
   )

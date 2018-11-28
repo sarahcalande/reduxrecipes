@@ -1,20 +1,39 @@
-// import React, { Component } from 'react';
-//
-//
-// export default class Saved extends Component{
-//
-// render(){
-//
-//
-//   return(
-//     <div class="ui grid">{this.props.savedRecipes.map(recipe => (<RecipeCard recipe={recipe}/>)()}</div>
-//   )
-// }
-// }
-//
-//
-// const mapStateToProps=(state)=>{
-//   return {recipes: state.savedRecipes}
-// }
-//
-// export default connect(mapStateToProps)(Saved);
+import React, { Component } from 'react';
+import RecipeCard from './RecipeCard.js'
+import {connect} from 'react-redux'
+import {saves} from '../redux/actionCreator.js'
+import SavedRecipeCard from './SavedRecipeCard.js'
+
+class Saved extends Component{
+
+
+
+
+componentDidMount=()=>{
+  this.props.saves()
+}
+
+
+returnSaved=()=>{
+  if (this.props.savedRecipes.length > 0){
+  return (<div class="ui grid">{this.props.savedRecipes.map(recipe => (<SavedRecipeCard recipe={recipe}/>))}</div>)
+} else {
+  return "You have nothing saved!"
+  }
+}
+
+
+
+render(){
+  return(
+    <div>{this.returnSaved()}</div>
+  )
+}
+}
+
+
+const mapStateToProps=(state)=>{
+  return {savedRecipes: state.savedRecipes}
+}
+
+export default connect(mapStateToProps, {saves})(Saved);

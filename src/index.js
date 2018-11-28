@@ -10,6 +10,10 @@ import * as serviceWorker from './serviceWorker';
 
 const store = createStore(reducer, applyMiddleware(thunk))
 
+var cors = require('cors')
+
+
+
 ReactDOM.render(
 <Provider store={store}>
   <App />

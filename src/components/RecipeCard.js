@@ -1,24 +1,34 @@
 import React, { Component } from 'react';
+import {details} from '../redux/actionCreator.js'
+import {connect} from 'react-redux'
+import {withRouter} from 'react-router-dom'
 
-
-export default class RecipeCard extends Component{
+class RecipeCard extends Component{
 
 
 
 handleClick=()=>{
-  window.open(`https://www.yummly.com/recipe/${this.props.recipe.id}`)
+  this.props.history.push(`/show/${this.props.recipe.id}`)
 }
 
-//
-// handleSave=(this.props.recipe)=>{
-//   return fetch(localhost3000/recipes , {
-//     method: 'POST',
-//     headers: content-type: application/json
-//     body: JSON.stringify(this.props.recipe)
-//   }.then(r=>r.json())
-//    .then(data => addToSaves(data))
-// }
 
+handleSave=(recipe)=>{
+  return fetch('http://localhost:3000/recipes', {
+    method: "POST",
+    headers: {
+              'Accept': 'application/json',
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({recipe:
+    {
+      name: recipe.recipeName,
+      ingredients: recipe.imageUrlsBySize,
+      image_url: recipe.imageUrlsBySize[90],
+      ingredient_ids: []
+    }
+  })
+  })
+}
 
 
 render(){
@@ -28,8 +38,8 @@ render(){
       <div class="ui card"><h1>{this.props.recipe.recipeName}</h1>
         <img src={this.props.recipe.imageUrlsBySize[90]} onClick={this.handleClick}/>
                 <button onClick={this.handleClick}>Details</button>
-         {this.props.recipe.ingredients.map(ingredient => <div>{ingredient}</div>)}
-        <button onClick={this.handleSave}>Save    <i class="heart icon"></i> </button>
+         {this.props.recipe.ingredients.map(ingredient => <div key={ingredient}>{ingredient}</div>)}
+        <button onClick={()=>this.handleSave(this.props.recipe)} >Save    <i class="heart icon"></i> </button>
         </div>
     </div>
   )
@@ -39,3 +49,5 @@ render(){
 
 
 }
+
+export default withRouter(connect(null, {details})(RecipeCard))

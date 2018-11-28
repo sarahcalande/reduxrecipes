@@ -62,3 +62,19 @@ form{
 i.heart.icon{
   color: pink;
 }
+
+
+body{
+/* background-image: url('./mexican.jpg') !important; */
+background-repeat: no-repeat !important;
+background-size: 100% !important;
+}
+
+
+.title{
+  font-family: "Brush Script MT", cursive;
+  font-size: 150px;
+  background: -webkit-linear-gradient(pink, salmon);
+  -webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+}
