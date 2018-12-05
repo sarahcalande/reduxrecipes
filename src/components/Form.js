@@ -40,12 +40,14 @@ render(){
   return(
 
 <form onSubmit={this.submitHandler} className="form">
-<h1 className="title"> Create A Recipe </h1>
+<h1 className="title"> Create A Recipe <img src='../../sarrocky.jpg' className="pic"/> </h1>
 <br/>
 <input type="text" placeholder="name" name="name" onChange = {this.detectChange}/>
 <br/>
 <input type="text" placeholder="image_url" name="image_url" onChange = {this.detectChange}/>
   <br/>
+  <input type="text" placeholder="ingredients" name="ingredients" onChange = {this.detectChange}/>
+    <br/>
   <button>Create</button>
 </form>
   )

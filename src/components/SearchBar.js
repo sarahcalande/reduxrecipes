@@ -29,9 +29,10 @@ handleChange=(e)=>{
 render(){
   return(
     <div>
+    <h1 className="title">Search for Anything <img src='../../sarrocky.jpg' className="pic"/> </h1>
 <div className="ui search">
 <form onSubmit={this.handleSubmit}>
-<input type="search" onChange={this.handleChange}/>
+<input type="search" onChange={this.handleChange} />
 <button>Submit</button>
 </form>
 </div>

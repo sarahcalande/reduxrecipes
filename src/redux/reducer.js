@@ -22,9 +22,11 @@ const reducer = (state = intialState, action)=>{
     return {...state, form: action.payload}
     case 'SHOW_DETAILS':
     return {...state, show: action.payload}
+    case 'SHOW_SAVED_DETAILS':
+    return {...state, show: action.payload}
     case 'CLEAR_LOGOUT':
     console.log("in clear logout")
-    return {...intialState, savedRecipes: action.payload}
+    return {...state, savedRecipes: action.payload}
       default: return state
   }
 }

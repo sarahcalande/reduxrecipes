@@ -25,6 +25,10 @@
 button{
   height: 40px;
   margin: 10px;
+  background-color: white !important;
+  color: black !important;
+  border: 2;
+  border-color: grey !important;
 }
 
 .Nav {
@@ -52,7 +56,12 @@ h1{
 }
 
 img{
-  height: 200px;
+  width: 230px !important;
+  height: 200px !important;
+  align: center !important;
+  position: center !important;
+  padding-left: 45px;
+  border-radius: 20px !important;
 }
 
 form{
@@ -64,10 +73,21 @@ i.heart.icon{
 }
 
 
+
+
+
+
 body{
-/* background-image: url('./mexican.jpg') !important; */
-background-repeat: no-repeat !important;
+background-image: url('./white.jpg') !important;
 background-size: 100% !important;
+}
+
+
+
+.form{
+  background-image: url('./baking.jpg') !important;
+  background-size: cover;
+  height: 100vh;
 }
 
 
@@ -77,4 +97,36 @@ background-size: 100% !important;
   background: -webkit-linear-gradient(pink, salmon);
   -webkit-background-clip: text;
 -webkit-text-fill-color: transparent;
+}
+
+
+
+.pic{
+  border-radius: 50px;
+}
+
+
+.try{
+}
+
+
+.router{
+  background: black;
+  font: white;
+}
+
+a {
+  color: black !important
+}
+
+
+
+visible.content{
+  size: 300px !important;
+  position: center !important;
+}
+
+
+.ui.grid{
+  padding-left: 150px !important;
 }

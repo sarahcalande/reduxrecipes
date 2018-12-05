@@ -15,6 +15,8 @@ render(){
   return(
 <h1 className="title">
 Sar's Recipe App
+
+<img src='../../sarrocky.jpg' className="pic"/>
 </h1>
   )
 }

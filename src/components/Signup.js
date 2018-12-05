@@ -37,6 +37,7 @@ signup=(e)=>{
   })
     .then(r => r.json())
     .then(r=>localStorage.setItem("token", r.jwt))
+    .then(this.props.history.push('/'))
 }
 
 
@@ -48,10 +49,11 @@ render(){
 <br/>
 <input type="text" placeholder="name" name="name" onChange = {this.detectChange}/>
 <input type="text" placeholder="username" name="username" onChange = {this.detectChange}/>
-<input type="text" placeholder="password" name="password" onChange = {this.detectChange}/>
+<input type="password" placeholder="password" name="password" onChange = {this.detectChange}/>
 <br/>
 <button>Submit</button>
 </form>
+<img src='../../sarrocky.jpg' className="pic"/>
 </div>
   )
 }

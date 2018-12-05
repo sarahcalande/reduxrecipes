@@ -12,6 +12,8 @@ import SearchBar from './SearchBar.js'
 import Signup from './Signup.js'
 import {connect} from 'react-redux'
 import {clearOnLogout} from '../redux/actionCreator.js'
+import SavedDetails from './SavedDetails.js'
+import Try from './Try.js'
 
 
 const AppRouter = (props) => {
@@ -23,15 +25,15 @@ const AppRouter = (props) => {
     }
 
 return(
-  <Router>
-  <div className="ui sidebar visible">
-  <button> <Link to="/">  Home </Link> </button>
-  <button > <i className="heart icon"></i> <Link to="/Saved"> Saved Recipes </Link></button>
-  <button ><Link to="/Form">  Create A Recipe</Link></button>
-  <button> <Link to="/Search">  Search</Link></button>
-  <button onClick={logout}>  <Link to="/Logout">  Logout</Link></button>
-    <button>  <Link to="/Login">  Login</Link></button>
-    <button>  <Link to="/Signup/">  Signup</Link></button>
+  <Router className="router">
+  <div >
+  <button class="ui secondary button"> <Link to="/">  Home </Link> </button>
+  <button class="ui secondary button"> <i className="heart icon"></i> <Link to="/Saved"> Saved Recipes </Link></button>
+  <button class="ui secondary button"><Link to="/Form">  Create A Recipe</Link></button>
+  <button class="ui secondary button"> <Link to="/Search">  Search</Link></button>
+  <button class="ui secondary button" onClick={logout}>  <Link to="/Logout">  Logout</Link></button>
+    <button class="ui secondary button">  <Link to="/Login">  Login</Link></button>
+    <button class="ui secondary button">  <Link to="/Signup/">  Signup</Link></button>
       <Route path="/" exact component={Home} />
       <Route path="/Saved/" component={Saved} />
       <Route path="/Form/" component={Form} />
@@ -40,6 +42,8 @@ return(
       <Route path="/Search/" component={SearchBar} />
       <Route path="/Signup/" component={Signup} />
       <Route path="/Show/:id" component={Show} />
+      <Route path="/details/:id" component={SavedDetails} />
+      <Route path="/try/:id" component={Try} />
   </div>
   </Router>
 )};

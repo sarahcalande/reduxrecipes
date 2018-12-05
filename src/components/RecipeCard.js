@@ -11,8 +11,16 @@ handleClick=()=>{
   this.props.history.push(`/show/${this.props.recipe.id}`)
 }
 
+handleTry=()=>{
+  this.props.history.push(`/try/${this.props.recipe.id}`)
+}
+
 
 handleSave=(recipe)=>{
+  console.log(recipe)
+  // const ingredientsArr = recipe.ingredients.map(ingredient => {ingredient: ingredient})
+
+
   return fetch('http://localhost:3000/user_recipes', {
     method: "POST",
     headers: {
@@ -22,6 +30,7 @@ handleSave=(recipe)=>{
     },
     body: JSON.stringify({user_recipe:
     {
+      id_name: recipe.id,
       name: recipe.recipeName,
       image_url: recipe.imageUrlsBySize[90]
     }
@@ -31,16 +40,25 @@ handleSave=(recipe)=>{
 
 
 render(){
-
   return(
     <div class="three wide column">
       <div class="ui card"><h1>{this.props.recipe.recipeName}</h1>
-        <img src={this.props.recipe.imageUrlsBySize[90]} onClick={this.handleClick}/>
-                <button onClick={this.handleClick}>Details</button>
-         {this.props.recipe.ingredients.map(ingredient => <div key={ingredient}>{ingredient}</div>)}
-        <button onClick={()=>this.handleSave(this.props.recipe)} >Save    <i class="heart icon"></i> </button>
+      <div class="ui medium fade reveal image">
+        <img class="visible content" src={this.props.recipe.imageUrlsBySize[90]} onClick={this.handleClick}/>
+                 {this.props.recipe.ingredients.map(ingredient => <div className="hidden content" key={ingredient}>{ingredient}</div>)}
         </div>
-    </div>
+        <br></br>
+          <br></br>
+            <br></br>
+              <br></br>
+              <br></br>
+              <br></br>
+              <br></br>
+                <button class="ui secondary button" onClick={this.handleClick}>Details</button>
+                <button class="ui secondary button" onClick={this.handleTry}>Try</button>
+        <button class="ui secondary button" onClick={()=>this.handleSave(this.props.recipe)} >Save    <i class="heart icon"></i> </button>
+        </div>
+        </div>
   )
 }
 

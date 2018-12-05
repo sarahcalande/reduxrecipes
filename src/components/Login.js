@@ -38,8 +38,10 @@ login=(e)=>{
     .then(r=>{
       console.log(r)
       localStorage.setItem("token", r.jwt)
-    })
+    }).then(this.props.history.push('/'))
 }
+
+
 
 
 
@@ -47,9 +49,10 @@ login=(e)=>{
 render(){
   return(
     <div>
+    <h1 className="title">Welcome<img src='../../sarrocky.jpg' className="pic"/> </h1>
 <form onSubmit={this.login}>
 <input type="text" placeholder="username" name="username" onChange = {this.detectChange}/>
-<input type="text" placeholder="password" name="password" onChange = {this.detectChange}/>
+<input type="password" placeholder="password" name="password" onChange = {this.detectChange}/>
 <br/>
 <button>Submit</button>
 </form>

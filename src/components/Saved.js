@@ -26,7 +26,9 @@ returnSaved=()=>{
 
 render(){
   return(
-    <div>{this.returnSaved()}</div>
+    <div>{this.returnSaved()}
+<img src='../../sarrocky.jpg' className="pic"/>
+    </div>
   )
 }
 }

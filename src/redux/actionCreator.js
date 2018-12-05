@@ -58,6 +58,18 @@ export const details=(recipe)=>{
 }
 
 
+export const savedDetailsFunction=(recipe)=>{
+  return dispatch => {
+  return fetch(`http://localhost:3000/recipes/${recipe.id}`)
+  .then(r=>r.json())
+  .then(showed => dispatch({
+    type: 'SHOW_SAVED_DETAILS',
+    payload: showed
+    }))
+  }
+}
+
+
 export const showForm=()=>{
   return {
       type: 'SHOW_FORM',
