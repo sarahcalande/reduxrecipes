@@ -36,7 +36,11 @@ handleClick=()=>{
 
 
 handleTry=()=>{
+  if (this.props.recipe.id_name !== null){
   this.props.history.push(`/try/${this.props.recipe.id_name}`)
+} else {
+  this.props.history.push(`/SavedDetails/${this.props.recipe.id}`)
+  }
 }
 
 render(){
@@ -45,7 +49,7 @@ render(){
       <div class="ui card">
       <button onClick={this.deleteThis}> Delete </button>
       <h1>{this.props.recipe.name}</h1>
-      <img src={this.props.recipe.image_url}/>
+      <img className="saved" src={this.props.recipe.image_url}/>
       <button onClick={this.handleClick}>Details</button>
       <button onClick={this.handleTry} className="try">Try</button>
       <div>{this.props.recipe.ingredients}</div>

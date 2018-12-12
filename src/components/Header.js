@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import Sparkle from 'react-sparkle'
 
 
 
@@ -13,9 +13,8 @@ render(){
 
 
   return(
-<h1 className="title">
-Sar's Recipe App
-
+<h1  style={{ position: 'relative' }} className="title">
+Sar's Recipes
 <img src='../../sarrocky.jpg' className="pic"/>
 </h1>
   )

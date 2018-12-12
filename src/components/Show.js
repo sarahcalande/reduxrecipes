@@ -43,7 +43,7 @@ loading=()=>{
     return (<div>It's Loading</div>)
   } else {
     return (<div> <h1>{this.props.show.name}</h1>
-      <h3> Ingredients: {this.props.show.ingredientLines.map(line => <div>{line}</div>)}  </h3>
+      <h3 className="ingredients"> Ingredients: {this.props.show.ingredientLines.map(line => <div>{line}</div>)}  </h3>
             <div> {this.props.show.images.map(image => <img src= {image.hostedLargeUrl}/>)}  </div>
                  <button onClick={this.instructions}>Instructions</button>
                        <button onClick={this.handleTry}>Try</button>

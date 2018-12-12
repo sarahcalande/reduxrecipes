@@ -70,10 +70,14 @@ showButter=()=>{
     }
 }
 
-
+showCheese=()=>{
+  if ((/cheese/g.test(this.props.show.ingredientLines))||(/Cheese/g.test(this.props.show.ingredientLines))){
+      return(<img draggable="true" src='../../cheese.jpg'/>)
+    }
+}
 
 showVeggies=()=>{
-  if ((/greenbeans/g.test(this.props.show.ingredientLines))||(/mushrooms/g.test(this.props.show.ingredientLines))||(/avocado/g.test(this.props.show.ingredientLines))){
+  if ((/greenbeans/g.test(this.props.show.ingredientLines))||(/mushrooms/g.test(this.props.show.ingredientLines))||(/avocado/g.test(this.props.show.ingredientLines))||(/broccoli/g.test(this.props.show.ingredientLines))){
       return(<img draggable="true" src='../../vegetables.jpg'/>)
     }
 }
@@ -88,6 +92,8 @@ showMeat=()=>{
   showPic=()=>{
       return this.props.show.images.map(image => <img src= {image.hostedLargeUrl}/>)
   }
+
+
 
   showFish=()=>{
     if ((/salmon/g.test(this.props.show.ingredientLines))||(/cod/g.test(this.props.show.ingredientLines))||(/haddock/g.test(this.props.show.ingredientLines))||(/tuna/g.test(this.props.show.ingredientLines))){
@@ -136,7 +142,7 @@ drop=(e)=>{
       e.preventDefault();
       var data = e.dataTransfer.getData("img");
         e.target.textContent += data;
-        if (/salt/g.test(e.target.textContent)){
+        if( (/salt/g.test(e.target.textContent))||(/cheese/g.test(e.target.textContent))){
             e.target.src= this.props.show.images.map(image => `${image.hostedLargeUrl}`)
           }
           else if (e.target.textContent.match('bread')){
@@ -180,19 +186,20 @@ loading=()=>{
       <h3>{this.props.show.yield}</h3>
       <h3>Total time: {this.props.show.totalTime}</h3>   <h3>Cook time: {this.props.show.cookTime}</h3>
       <div class="ui grid">
-      <div onDragStart= {(e)=>this.drag(e)} > {this.showVanilla()} </div>
-      <div onDragStart= {(e)=>this.drag(e)} > {this.showFlour()} </div>
-      <div onDragStart= {(e)=>this.drag(e)} > {this.showSugar()} </div>
-      <div onDragStart= {(e)=>this.drag(e)} > {this.showEgg()} </div>
-      <div onDragStart= {(e)=>this.drag(e)} > {this.showChocolate()} </div>
-      <div onDragStart= {(e)=>this.drag(e)} > {this.showVeggies()} </div>
-      <div onDragStart= {(e)=>this.drag(e)} > {this.showMeat()} </div>
-      <div onDragStart= {(e)=>this.drag(e)} > {this.showFish()} </div>
-      <div onDragStart= {(e)=>this.drag(e)} > {this.showButter()} </div>
-      <div onDragStart= {(e)=>this.drag(e)} > {this.showSalt()} </div>
-      <div onDragStart= {(e)=>this.drag(e)} > {this.showFruit()} </div>
-      <div onDragStart= {(e)=>this.drag(e)} > {this.showChickpeas()} </div>
-      <div onDragStart= {(e)=>this.drag(e)} > {this.showBread()} </div>
+      <div className="food" onDragStart= {(e)=>this.drag(e)} > {this.showVanilla()} </div>
+      <div className="food" onDragStart= {(e)=>this.drag(e)} > {this.showFlour()} </div>
+      <div className="food" onDragStart= {(e)=>this.drag(e)} > {this.showSugar()} </div>
+      <div className="food" onDragStart= {(e)=>this.drag(e)} > {this.showEgg()} </div>
+      <div className="food" onDragStart= {(e)=>this.drag(e)} > {this.showChocolate()} </div>
+      <div className="food" onDragStart= {(e)=>this.drag(e)} > {this.showVeggies()} </div>
+      <div className="food" onDragStart= {(e)=>this.drag(e)} > {this.showMeat()} </div>
+      <div className="food" onDragStart= {(e)=>this.drag(e)} > {this.showFish()} </div>
+      <div className="food" onDragStart= {(e)=>this.drag(e)} > {this.showButter()} </div>
+      <div className="food" onDragStart= {(e)=>this.drag(e)} > {this.showSalt()} </div>
+      <div className="food" onDragStart= {(e)=>this.drag(e)} > {this.showFruit()} </div>
+      <div className="food" onDragStart= {(e)=>this.drag(e)} > {this.showChickpeas()} </div>
+      <div className="food" onDragStart= {(e)=>this.drag(e)} > {this.showBread()} </div>
+      <div className="food" onDragStart= {(e)=>this.drag(e)} > {this.showCheese()} </div>
       </div>
       <h3> Ingredients: {this.props.show.ingredientLines.map(line => <div>{line}</div>)}  </h3>
                  <button onClick={this.instructions}>Instructions</button>

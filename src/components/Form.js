@@ -44,7 +44,7 @@ render(){
 <br/>
 <input type="text" placeholder="name" name="name" onChange = {this.detectChange}/>
 <br/>
-<input type="text" placeholder="image_url" name="image_url" onChange = {this.detectChange}/>
+<input type="text" placeholder="image" name="image_url" onChange = {this.detectChange}/>
   <br/>
   <input type="text" placeholder="ingredients" name="ingredients" onChange = {this.detectChange}/>
     <br/>

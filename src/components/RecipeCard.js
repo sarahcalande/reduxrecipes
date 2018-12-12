@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {details} from '../redux/actionCreator.js'
 import {connect} from 'react-redux'
 import {withRouter} from 'react-router-dom'
+import Sparkle from 'react-sparkle'
 
 class RecipeCard extends Component{
 
@@ -13,6 +14,11 @@ handleClick=()=>{
 
 handleTry=()=>{
   this.props.history.push(`/try/${this.props.recipe.id}`)
+}
+
+
+Hover=()=>{
+  return(<Sparkle color={'#FF69B4'}/>)
 }
 
 
@@ -55,7 +61,7 @@ render(){
               <br></br>
               <br></br>
                 <button class="ui secondary button" onClick={this.handleClick}>Details</button>
-                <button class="ui secondary button" onClick={this.handleTry}>Try</button>
+                <button style={{ position: 'relative' }} class="ui secondary button" onClick={this.handleTry} onMouseOver={this.Hover}>Try</button>
         <button class="ui secondary button" onClick={()=>this.handleSave(this.props.recipe)} >Save    <i class="heart icon"></i> </button>
         </div>
         </div>

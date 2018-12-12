@@ -49,6 +49,8 @@ button{
 
 h1{
   font-size: 20px;
+  padding-top: 20px !important;
+  margin: 0 !important;
 }
 
 .recipes{
@@ -56,12 +58,7 @@ h1{
 }
 
 img{
-  width: 230px !important;
-  height: 200px !important;
-  align: center !important;
-  position: center !important;
-  padding-left: 45px;
-  border-radius: 20px !important;
+
 }
 
 form{
@@ -121,12 +118,60 @@ a {
 
 
 
-visible.content{
-  size: 300px !important;
+img.visible.content{
+  width: 290px !important;
+  height: 190px !important;
+  align: center !important;
   position: center !important;
+  /* padding-left: 20px;
+    padding-right: 20px; */
+  border-radius: 2 0px !important;
 }
+
+
+img{
+  max-height: 300px;
+max-width: 300px;
+}
+
+div.hidden.content{
+    height: 10px !important;
+}
+
+
+img.saved{
+  width: 220px !important;
+  height: 200px !important;
+  align: center !important;
+  position: center !important;
+  /* padding-left: px; */
+  border-radius: 2 0px !important;
+}
+
 
 
 .ui.grid{
   padding-left: 150px !important;
+}
+
+
+
+
+
+
+img.pic{
+  width: 200px;
+  height: 200px;
+}
+
+
+
+.ingredients{
+  color: black;
+  display: inline-block;
+  align-self: center !important;
+  background-color: #ffffffaa;
+    border-radius: 20px !important;
+  /* opacity: .5; */
+  width: 500px;
 }
