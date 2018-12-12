@@ -1,6 +1,6 @@
 export const fetchRecipe=()=>{
   return dispatch => {
-    fetch('https://api.yummly.com/v1/api/recipes?_app_id=422fb511&_app_key=bcc41cf5e1db329ad03dcf52a9121c9d')
+    fetch(')
     .then(r=>r.json())
     .then(recipe => dispatch({
       type: 'FETCH_RECIPE',
@@ -12,7 +12,7 @@ export const fetchRecipe=()=>{
 
 export const giveToAC=(searchedState)=>{
   return dispatch => {
-    fetch(`https://api.yummly.com/v1/api/recipes?_app_id=422fb511&_app_key=bcc41cf5e1db329ad03dcf52a9121c9d&q=${searchedState}`)
+    fetch(`=${searchedState}`)
     .then(r=>r.json())
     .then(recipe => dispatch({
       type: 'SEARCH_RECIPE',
@@ -48,7 +48,7 @@ export const saves=()=>{
 
 export const details=(recipe)=>{
   return dispatch => {
-  return fetch(`https://api.yummly.com/v1/api/recipe/${recipe}?_app_id=422fb511&_app_key=bcc41cf5e1db329ad03dcf52a9121c9d`)
+  return fetch(``)
   .then(r=>r.json())
   .then(showed => dispatch({
     type: 'SHOW_DETAILS',
